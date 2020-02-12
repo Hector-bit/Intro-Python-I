@@ -14,9 +14,8 @@ https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files
 f = open('foo.txt', 'r')
 with open('foo.txt') as f:
     read_data = f.read()
-
-f.closed
-print('hello this should be working')
+f.read()
+f.close()
 
 # Open up a file called "bar.txt" (which doesn't exist yet) for
 # writing. Write three lines of arbitrary content to that file,
@@ -24,3 +23,11 @@ print('hello this should be working')
 # sure that it contains what you expect it to contain
 
 # YOUR CODE HERE
+
+with open('bar.txt', 'w') as f:
+    for i in range(3):
+        lines = input("user input here: ")+"\n"
+        f.write(lines)
+with open('bar.txt', 'r') as z:
+    read_data1 = z.read()
+    print(read_data1)
